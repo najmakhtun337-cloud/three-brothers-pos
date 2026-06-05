@@ -1,62 +1,249 @@
-<!-- Ei code automatic daily reset korbe 😈 -->
+<!-- FILE NAME: index.html -->
 
-<script>
+<!DOCTYPE html>
+<html lang="en">
 
-let today =
-new Date().toLocaleDateString();
+<head>
 
-let savedDate =
-localStorage.getItem("savedDate");
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* NEW DAY RESET */
+<title>Three Brothers Fresh Chicken</title>
 
-if(savedDate !== today){
+<style>
 
-localStorage.removeItem("dailySales");
-
-localStorage.setItem("savedDate",today);
-
+body{
+margin:0;
+font-family:Arial;
+background:#111;
+color:white;
 }
 
-/* SAVE SALES */
-
-function saveSale(amount){
-
-let sales =
-JSON.parse(localStorage.getItem("dailySales")) || [];
-
-sales.push(amount);
-
-localStorage.setItem(
-
-"dailySales",
-
-JSON.stringify(sales)
-
-);
-
+header{
+background:black;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-/* SHOW TOTAL */
-
-function showTotalSales(){
-
-let sales =
-JSON.parse(localStorage.getItem("dailySales")) || [];
-
-let total = 0;
-
-sales.forEach(item => {
-
-total += item;
-
-});
-
-document.getElementById("todaySale").innerHTML =
-"₹" + total;
-
+.logo{
+font-size:28px;
+font-weight:bold;
+color:gold;
 }
 
-showTotalSales();
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
 
-</script>
+.hero{
+height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:url('https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=1400&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+}
+
+.hero-box{
+background:rgba(0,0,0,0.7);
+padding:40px;
+border-radius:20px;
+}
+
+.hero-box h1{
+font-size:60px;
+color:gold;
+}
+
+.hero-box p{
+font-size:20px;
+margin-top:10px;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:15px 35px;
+background:gold;
+color:black;
+text-decoration:none;
+border-radius:50px;
+font-weight:bold;
+}
+
+.products{
+padding:60px 10%;
+}
+
+.products h1{
+text-align:center;
+color:gold;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1c1c1c;
+padding:20px;
+border-radius:20px;
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.card h2{
+color:gold;
+}
+
+.contact{
+padding:60px 10%;
+text-align:center;
+background:#181818;
+}
+
+footer{
+background:black;
+padding:20px;
+text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+🐔 Three Brothers Fresh Chicken
+
+</div>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">Products</a>
+<a href="#">Contact</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-box">
+
+<h1>
+
+Fresh Chicken Delivered 😈
+
+</h1>
+
+<p>
+
+Premium • Hygienic • Fresh
+
+</p>
+
+<a href="pos-terminal.html" class="btn">
+
+Order Now
+
+</a>
+
+</div>
+
+</section>
+
+<section class="products">
+
+<h1>
+
+🔥 Our Products
+
+</h1>
+
+<div class="grid">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1603048719539-9ecb4d1f0b4f?q=80&w=1200&auto=format&fit=crop">
+
+<h2>
+Skinless Chicken
+</h2>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1587593810167-a84920ea0781?q=80&w=1200&auto=format&fit=crop">
+
+<h2>
+Live Chicken
+</h2>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1518492104633-130d0cc84637?q=80&w=1200&auto=format&fit=crop">
+
+<h2>
+Desi Chicken
+</h2>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<h1>
+
+📞 Contact Us
+
+</h1>
+
+<p>
+📍 Malancha, Bosirhat Road
+</p>
+
+<p>
+📱 WhatsApp : 8637575166
+</p>
+
+<p>
+🚚 Home Delivery Available
+</p>
+
+</section>
+
+<footer>
+
+© Three Brothers Fresh Chicken 😈
+
+</footer>
+
+</body>
+
+</html>
