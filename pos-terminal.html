@@ -1,0 +1,244 @@
+<!-- FILE NAME: pos-terminal.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>POS Terminal</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#eef2f7;
+padding:20px;
+}
+
+.main{
+display:grid;
+grid-template-columns:1fr 350px;
+gap:20px;
+}
+
+.left,
+.right{
+background:white;
+padding:20px;
+border-radius:15px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#0d6efd;
+color:white;
+padding:12px;
+}
+
+td{
+padding:10px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+
+input{
+padding:8px;
+width:100%;
+}
+
+.total{
+background:#0d6efd;
+color:white;
+padding:20px;
+text-align:center;
+border-radius:15px;
+margin-top:20px;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:10px;
+border:none;
+font-size:16px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.print{
+background:black;
+color:white;
+}
+
+.save{
+background:green;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>
+
+🐔 THREE BROTHERS POS
+
+</h1>
+
+<div class="main">
+
+<div class="left">
+
+<table>
+
+<tr>
+
+<th>ITEM</th>
+<th>QTY</th>
+<th>RATE</th>
+<th>AMOUNT</th>
+
+</tr>
+
+<tr>
+
+<td>Skinless</td>
+
+<td>
+<input type="number" id="q1">
+</td>
+
+<td>
+<input type="number" id="r1">
+</td>
+
+<td id="a1">
+₹0
+</td>
+
+</tr>
+
+<tr>
+
+<td>Live</td>
+
+<td>
+<input type="number" id="q2">
+</td>
+
+<td>
+<input type="number" id="r2">
+</td>
+
+<td id="a2">
+₹0
+</td>
+
+</tr>
+
+<tr>
+
+<td>Desi</td>
+
+<td>
+<input type="number" id="q3">
+</td>
+
+<td>
+<input type="number" id="r3">
+</td>
+
+<td id="a3">
+₹0
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div class="right">
+
+<div class="total">
+
+<h2>
+NET TOTAL
+</h2>
+
+<h1 id="grand">
+₹0
+</h1>
+
+</div>
+
+<button class="print" onclick="window.print()">
+
+🖨 PRINT BILL
+
+</button>
+
+<button class="save" onclick="saveBill()">
+
+💾 SAVE BILL
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let inputs =
+document.querySelectorAll("input");
+
+inputs.forEach(input=>{
+
+input.addEventListener("input",calculate);
+
+});
+
+function calculate(){
+
+let total = 0;
+
+for(let i=1;i<=3;i++){
+
+let q =
+parseFloat(document.getElementById("q"+i).value) || 0;
+
+let r =
+parseFloat(document.getElementById("r"+i).value) || 0;
+
+let a = q*r;
+
+document.getElementById("a"+i).innerHTML =
+"₹"+a;
+
+total += a;
+
+}
+
+document.getElementById("grand").innerHTML =
+"₹"+total;
+
+}
+
+function saveBill(){
+
+alert("Bill Saved 😈");
+
+}
+
+</script>
+
+</body>
+
+</html>
